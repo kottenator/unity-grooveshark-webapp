@@ -1,0 +1,13 @@
+{
+	"includes": ["http://grooveshark.com/*"],
+	"requires": ["utils.js"],
+	"name": "Grooveshark",
+	"scripts": ["Grooveshark.user.js"],
+	"maintainer": "Rostyslav Bryzgunov <kottenator@gmail.com>",
+	"manifest-version": "1.0",
+	"integration-version": "1.0",
+	"package-name": "Grooveshark",
+	"icons": {},
+	"domain": "grooveshark.com",
+	"license": "MIT"
+}
