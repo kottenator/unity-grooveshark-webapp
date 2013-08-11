@@ -142,11 +142,10 @@ function _installGroovesharkWebApplication() {
                             break;
                     }
 
-                    Unity.Launcher.addAction(self.COLLECT_SONG_ACTION, self.collect);
-                    Unity.Launcher.addAction(self.FAVOURITE_SONG_ACTION, self.favourite);
                     Unity.Launcher.addAction(self.PREVIOUS_SONG_ACTION, self.previous);
                     Unity.Launcher.addAction(self.NEXT_SONG_ACTION, self.next);
-
+                    Unity.Launcher.addAction(self.COLLECT_SONG_ACTION, self.collect);
+                    Unity.Launcher.addAction(self.FAVOURITE_SONG_ACTION, self.favourite);
                 }
             );
         },
