@@ -7,7 +7,8 @@ Intro
 -----
 Few words for people who are not familiar with Ubuntu Unity.
 
-Since Ubuntu 12.10 there is a great opportunity to integrate your website's might & magic with Ubuntu Unity interface.
+Since Ubuntu 12.10 there is a great opportunity to integrate your website's might & magic with Ubuntu Unity interface - [Unity web-apps](http://developer.ubuntu.com/webapps/).
+
 This gives you chance to:
 - show your web-app in Unity Launcher (left side-bar) and Dash (apps search popup):
 - show specific context actions (right-click on Launcher icon):
@@ -25,10 +26,9 @@ Launcher context actions:
 ![image](http://i.imgur.com/uNVvMdP.png)
 
 Sound menu integration and Launcher context actions are related to current player state.
-
 **It will work only after you will start playback on Grooveshark website**, sorry for inconvenience.
 
-Probably I need to implement "Play your station" context menu, when you just opened Grooveshark.
+Probably I need to implement "Play your station" context menu, when you just opened Grooveshark (but it's not in official API).
 
 Install
 -------
