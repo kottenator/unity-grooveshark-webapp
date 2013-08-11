@@ -5,7 +5,7 @@ Ubuntu Unity web-app for new Grooveshark.
 
 Intro
 -----
-Few words for people who are familiar with Ubuntu Unity.
+Few words for people who are not familiar with Ubuntu Unity.
 
 Since Ubuntu 12.10 there is a great opportunity to integrate your website's might & magic with Ubuntu Unity interface.
 This gives you chance to:
@@ -25,9 +25,10 @@ Launcher context actions:
 ![image](http://i.imgur.com/uNVvMdP.png)
 
 Sound menu integration and Launcher context actions are related to current player state.
-It will work only after you will start playback on Grooveshark website, sorry for inconvenience.
 
-Probably I need to implement "Play your station" context menu, when you just opened Grooveshark
+**It will work only after you will start playback on Grooveshark website**, sorry for inconvenience.
+
+Probably I need to implement "Play your station" context menu, when you just opened Grooveshark.
 
 Install
 -------
