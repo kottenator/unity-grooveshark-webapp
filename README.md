@@ -10,10 +10,10 @@ Few words for people who are not familiar with Ubuntu Unity.
 Since Ubuntu 12.10 there is a great opportunity to integrate your website's might & magic with Ubuntu Unity interface - [Unity web-apps](http://developer.ubuntu.com/webapps/).
 
 This gives you chance to:
-- show your web-app in Unity Launcher (left side-bar) and Dash (apps search popup):
-- show specific context actions (right-click on Launcher icon):
-- integrate your website with Unity Messages menu:
-- integrate your website with Unity Sound menu:
+- show your web-app in Unity Launcher (left side-bar) and Dash (apps search popup)
+- show specific context actions (right-click on Launcher icon)
+- integrate your website with Unity Messages menu
+- integrate your website with Unity Sound menu
 
 Features
 --------
