@@ -1,7 +1,7 @@
 {
 	"includes": ["http://grooveshark.com/*"],
 	"requires": ["utils.js"],
-	"name": "Grooveshark",
+	"name": "Grooveshark WebApp",
 	"scripts": ["Grooveshark.user.js"],
 	"maintainer": "Rostyslav Bryzgunov <kottenator@gmail.com>",
 	"manifest-version": "1.0",
