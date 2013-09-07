@@ -31,11 +31,8 @@ function _installGroovesharkWebApplication() {
 
         // different actions
         LOADING_PLAYER_ACTION: "Loading player ...",
-        LOADING_SONG_ACTION: "Loading song ...",
         PLAY_ACTION: "▶ Play",
         PAUSE_ACTION: "■ Pause",
-        NEXT_SONG_ACTION: "» Next song",
-        PREVIOUS_SONG_ACTION: "« Previous song",
         COLLECT_SONG_ACTION: "✔ Collect song",
         FAVOURITE_SONG_ACTION: "❤ Favourite song",
 
@@ -69,6 +66,9 @@ function _installGroovesharkWebApplication() {
             });
         },
 
+        _song: null,
+        _nt: null,
+
         _initActions: function() {
             var Unity = this.Unity;
             var self = this;
@@ -81,7 +81,7 @@ function _installGroovesharkWebApplication() {
 
             window.Grooveshark.setSongStatusCallback(
                 /*
-                 * @param {Object} response:
+                 * @param {Object} res Response:
                  *
                  * - song {Object|null} Song record:
                  *     - songID: int,
@@ -103,15 +103,25 @@ function _installGroovesharkWebApplication() {
                     var song = res.song,
                         status = res.status;
 
-                    Unity.Launcher.removeActions();
+                    if (!song || status == 'none') {
+                        Unity.Launcher.removeActions();
+                        delete self._song;
+                    } else if (!self._song) {
+                        Unity.Launcher.addAction(self.COLLECT_SONG_ACTION, self.collect);
+                        Unity.Launcher.addAction(self.FAVOURITE_SONG_ACTION, self.favourite);
+                    }
 
                     switch (status) {
                         case 'loading':
-                            Unity.Launcher.addAction(self.LOADING_SONG_ACTION, function() {});
+                            if (song && (!self._song || song.songID != self._song.songID)) {
+                                Unity.Notification.showNotification(
+                                    song.songName,
+                                    "by " + song.artistName + " <br/> on " + song.albumName,
+                                    song.artURL
+                                );
+                            }
                             break;
                         case 'playing':
-                            Unity.Launcher.addAction(self.PAUSE_ACTION, self.pause);
-
                             // little hack for next song event, because Grooveshark JS API behaves strange:
                             // - "Song A: playing" event triggered
                             // - song plays and ends
@@ -120,11 +130,6 @@ function _installGroovesharkWebApplication() {
                             // - immediately: "Song B: playing" event triggered
                             clearTimeout(self._nt);
                             self._nt = setTimeout(function() {
-                                Unity.Notification.showNotification(
-                                    song.songName,
-                                    "by " + song.artistName + " on " + song.albumName,
-                                    song.artURL
-                                );
 
                                 Unity.MediaPlayer.setTrack({
                                     title: song.songName,
@@ -137,15 +142,11 @@ function _installGroovesharkWebApplication() {
                             }, 300);
                             break;
                         case 'paused':
-                            Unity.Launcher.addAction(self.PLAY_ACTION, self.play);
                             Unity.MediaPlayer.setPlaybackState(Unity.MediaPlayer.PlaybackState.PAUSED);
                             break;
                     }
 
-                    Unity.Launcher.addAction(self.PREVIOUS_SONG_ACTION, self.previous);
-                    Unity.Launcher.addAction(self.NEXT_SONG_ACTION, self.next);
-                    Unity.Launcher.addAction(self.COLLECT_SONG_ACTION, self.collect);
-                    Unity.Launcher.addAction(self.FAVOURITE_SONG_ACTION, self.favourite);
+                    self._song = song;
                 }
             );
         },
