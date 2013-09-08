@@ -31,8 +31,6 @@ function _installGroovesharkWebApplication() {
 
         // different actions
         LOADING_PLAYER_ACTION: "Loading player ...",
-        PLAY_ACTION: "▶ Play",
-        PAUSE_ACTION: "■ Pause",
         COLLECT_SONG_ACTION: "✔ Collect song",
         FAVOURITE_SONG_ACTION: "❤ Favourite song",
 
@@ -106,9 +104,11 @@ function _installGroovesharkWebApplication() {
                     if (!song || status == 'none') {
                         Unity.Launcher.removeActions();
                         delete self._song;
-                    } else if (!self._song) {
+                        self._songActionsInited = false;
+                    } else if (!self._songActionsInited) {
                         Unity.Launcher.addAction(self.COLLECT_SONG_ACTION, self.collect);
                         Unity.Launcher.addAction(self.FAVOURITE_SONG_ACTION, self.favourite);
+                        self._songActionsInited = true;
                     }
 
                     switch (status) {
