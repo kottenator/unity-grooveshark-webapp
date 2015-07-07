@@ -1,7 +1,9 @@
 Unity Grooveshark web-app
 =========================
 
-Ubuntu Unity web-app for new Grooveshark.
+Ubuntu Unity web-app for Grooveshark.
+
+**Unfortunately, Grooveshark has been closed on April 30, 2015, so my app doesn't work anymore.**
 
 Intro
 -----
